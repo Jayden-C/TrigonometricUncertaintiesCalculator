@@ -46,11 +46,19 @@ namespace TrigonometricUncertaintiesCalculator
             ResultTextBox.Text = "";
         }
 
+        private void uInRadiansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uInRadiansToolStripMenuItem.Checked = !uInRadiansToolStripMenuItem.Checked;
+        }
+
+        private void SmallUToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SmallUToolStripMenuItem.Checked = !SmallUToolStripMenuItem.Checked;
+        }
 
         #endregion
 
         #region Custom Methods
-
 
         private void PrintSingleLineCenter(string toPrint)
         {
@@ -61,15 +69,15 @@ namespace TrigonometricUncertaintiesCalculator
 
         private void PrintFormulaSine()
         {
-            if (!RadiansSettingCheckbox.Checked)
+            if (!uInRadiansToolStripMenuItem.Checked)
             {
-                PrintSingleLineCenter(SmallUCheckBox.Checked
+                PrintSingleLineCenter(SmallUToolStripMenuItem.Checked
                     ? "y = sin(x) ± cos(x)sin(u)"
                     : "y = sin(x)cos(u) ± cos(x)sin(u)");
             }
             else
             {
-                PrintSingleLineCenter(SmallUCheckBox.Checked
+                PrintSingleLineCenter(SmallUToolStripMenuItem.Checked
                     ? "y = sin(x) ± u•cos(x)"
                     : "y = sin(x)cos(u) ± cos(x)sin(u)");
             }
@@ -77,20 +85,19 @@ namespace TrigonometricUncertaintiesCalculator
 
         private void PrintFormulaCosine()
         {
-            if (!RadiansSettingCheckbox.Checked)
+            if (!uInRadiansToolStripMenuItem.Checked)
             {
-                PrintSingleLineCenter(SmallUCheckBox.Checked
+                PrintSingleLineCenter(SmallUToolStripMenuItem.Checked
                     ? "y = cos(x) ± sin(x)sin(u)"
                     : "y = cos(x)cos(u) ± sin(x)sin(u)");
             }
             else
             {
-                PrintSingleLineCenter(SmallUCheckBox.Checked
+                PrintSingleLineCenter(SmallUToolStripMenuItem.Checked
                     ? "y = cos(x) ± u•sin(x)"
-                    : "y = sin(x)cos(u) ± cos(x)sin(u)");
+                    : "y = cos(x)cos(u) ± sin(x)sin(u)");
             }
         }
-
 
         #endregion
 

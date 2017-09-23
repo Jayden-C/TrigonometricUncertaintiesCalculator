@@ -37,14 +37,15 @@
             this.UValueSetterLabel = new System.Windows.Forms.Label();
             this.UValueSetterTextBox = new System.Windows.Forms.RichTextBox();
             this.XValueSetterTextBox = new System.Windows.Forms.RichTextBox();
-            this.RadiansSettingCheckbox = new System.Windows.Forms.CheckBox();
             this.ResultTextBox = new System.Windows.Forms.RichTextBox();
             this.ResultLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uInRadiansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SmallUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ResultClearButton = new System.Windows.Forms.Button();
-            this.SmallUCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,18 +144,6 @@
             this.XValueSetterTextBox.TabIndex = 8;
             this.XValueSetterTextBox.Text = "";
             // 
-            // RadiansSettingCheckbox
-            // 
-            this.RadiansSettingCheckbox.AutoSize = true;
-            this.RadiansSettingCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RadiansSettingCheckbox.Font = new System.Drawing.Font("Segoe UI", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RadiansSettingCheckbox.Location = new System.Drawing.Point(9, 187);
-            this.RadiansSettingCheckbox.Name = "RadiansSettingCheckbox";
-            this.RadiansSettingCheckbox.Size = new System.Drawing.Size(192, 42);
-            this.RadiansSettingCheckbox.TabIndex = 10;
-            this.RadiansSettingCheckbox.Text = "\'u\' in radians";
-            this.RadiansSettingCheckbox.UseVisualStyleBackColor = true;
-            // 
             // ResultTextBox
             // 
             this.ResultTextBox.Location = new System.Drawing.Point(12, 281);
@@ -179,7 +168,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(704, 24);
@@ -197,9 +187,32 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uInRadiansToolStripMenuItem,
+            this.SmallUToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // uInRadiansToolStripMenuItem
+            // 
+            this.uInRadiansToolStripMenuItem.Name = "uInRadiansToolStripMenuItem";
+            this.uInRadiansToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.uInRadiansToolStripMenuItem.Text = "\'u\' in radians";
+            this.uInRadiansToolStripMenuItem.Click += new System.EventHandler(this.uInRadiansToolStripMenuItem_Click);
+            // 
+            // SmallUToolStripMenuItem
+            // 
+            this.SmallUToolStripMenuItem.Name = "SmallUToolStripMenuItem";
+            this.SmallUToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.SmallUToolStripMenuItem.Text = "Small \'u\'";
+            this.SmallUToolStripMenuItem.Click += new System.EventHandler(this.SmallUToolStripMenuItem_Click);
             // 
             // ResultClearButton
             // 
@@ -212,28 +225,14 @@
             this.ResultClearButton.UseVisualStyleBackColor = true;
             this.ResultClearButton.Click += new System.EventHandler(this.ResultClearButton_Click);
             // 
-            // SmallUCheckBox
-            // 
-            this.SmallUCheckBox.AutoSize = true;
-            this.SmallUCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SmallUCheckBox.Font = new System.Drawing.Font("Segoe UI", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SmallUCheckBox.Location = new System.Drawing.Point(9, 224);
-            this.SmallUCheckBox.Name = "SmallUCheckBox";
-            this.SmallUCheckBox.Size = new System.Drawing.Size(127, 42);
-            this.SmallUCheckBox.TabIndex = 15;
-            this.SmallUCheckBox.Text = "Small u";
-            this.SmallUCheckBox.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 569);
-            this.Controls.Add(this.SmallUCheckBox);
             this.Controls.Add(this.ResultClearButton);
             this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.ResultTextBox);
-            this.Controls.Add(this.RadiansSettingCheckbox);
             this.Controls.Add(this.XValueSetterTextBox);
             this.Controls.Add(this.UValueSetterTextBox);
             this.Controls.Add(this.UValueSetterLabel);
@@ -266,14 +265,15 @@
         private System.Windows.Forms.Label UValueSetterLabel;
         private System.Windows.Forms.RichTextBox UValueSetterTextBox;
         private System.Windows.Forms.RichTextBox XValueSetterTextBox;
-        private System.Windows.Forms.CheckBox RadiansSettingCheckbox;
         private System.Windows.Forms.Label ResultLabel;
         private System.Windows.Forms.RichTextBox ResultTextBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button ResultClearButton;
-        private System.Windows.Forms.CheckBox SmallUCheckBox;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uInRadiansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SmallUToolStripMenuItem;
     }
 }
 
