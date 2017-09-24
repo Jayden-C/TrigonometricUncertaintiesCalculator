@@ -19,11 +19,12 @@ namespace TrigonometricUncertaintiesCalculator
         public MainForm()
         {
             InitializeComponent();
+            ResultTextBox.SelectionAlignment = HorizontalAlignment.Center;
         }
 
         #region Auto-generated Methods
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -66,16 +67,20 @@ namespace TrigonometricUncertaintiesCalculator
             if (e.Control && e.KeyCode == Keys.D) ResultClearButton_Click(null, null);
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _aboutForm.ShowDialog();
         }
 
         #endregion
 
+        /// <summary>
+        /// Sets the font and text of the result text box. To be used primarily by external classes.
+        /// </summary>
+        /// <param name="font">Font to be used</param>
+        /// <param name="text">Text to be printed in the result box</param>
         public void PrintToResultTextBox(Font font, string text)
         {
-            ResultTextBox.SelectionAlignment = HorizontalAlignment.Center;
             ResultTextBox.Font = font;
             ResultTextBox.Text = text;
         }
