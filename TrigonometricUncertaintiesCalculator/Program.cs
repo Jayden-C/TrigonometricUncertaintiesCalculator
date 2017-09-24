@@ -8,6 +8,8 @@ namespace TrigonometricUncertaintiesCalculator
 {
     static class Program
     {
+        internal static Form1 MainWindowForm;
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,8 @@ namespace TrigonometricUncertaintiesCalculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            MainWindowForm = new Form1();
+            Application.Run(MainWindowForm);
         }
     }
 }

@@ -43,8 +43,9 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uInRadiansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RadiansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SmallUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uncertaintyAsPercentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ResultClearButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -150,7 +151,7 @@
             this.ResultTextBox.Name = "ResultTextBox";
             this.ResultTextBox.ReadOnly = true;
             this.ResultTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.ResultTextBox.Size = new System.Drawing.Size(681, 276);
+            this.ResultTextBox.Size = new System.Drawing.Size(681, 318);
             this.ResultTextBox.TabIndex = 11;
             this.ResultTextBox.Text = "";
             // 
@@ -194,25 +195,32 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uInRadiansToolStripMenuItem,
-            this.SmallUToolStripMenuItem});
+            this.RadiansToolStripMenuItem,
+            this.SmallUToolStripMenuItem,
+            this.uncertaintyAsPercentToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
-            // uInRadiansToolStripMenuItem
+            // RadiansToolStripMenuItem
             // 
-            this.uInRadiansToolStripMenuItem.Name = "uInRadiansToolStripMenuItem";
-            this.uInRadiansToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.uInRadiansToolStripMenuItem.Text = "\'u\' in radians";
-            this.uInRadiansToolStripMenuItem.Click += new System.EventHandler(this.uInRadiansToolStripMenuItem_Click);
+            this.RadiansToolStripMenuItem.Name = "RadiansToolStripMenuItem";
+            this.RadiansToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.RadiansToolStripMenuItem.Text = "Radians";
+            this.RadiansToolStripMenuItem.Click += new System.EventHandler(this.RadiansToolStripMenuItem_Click);
             // 
             // SmallUToolStripMenuItem
             // 
             this.SmallUToolStripMenuItem.Name = "SmallUToolStripMenuItem";
-            this.SmallUToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.SmallUToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.SmallUToolStripMenuItem.Text = "Small \'u\'";
             this.SmallUToolStripMenuItem.Click += new System.EventHandler(this.SmallUToolStripMenuItem_Click);
+            // 
+            // uncertaintyAsPercentToolStripMenuItem
+            // 
+            this.uncertaintyAsPercentToolStripMenuItem.Name = "uncertaintyAsPercentToolStripMenuItem";
+            this.uncertaintyAsPercentToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.uncertaintyAsPercentToolStripMenuItem.Text = "Uncertainty as percent";
             // 
             // ResultClearButton
             // 
@@ -229,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 569);
+            this.ClientSize = new System.Drawing.Size(704, 611);
             this.Controls.Add(this.ResultClearButton);
             this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.ResultTextBox);
@@ -272,8 +280,9 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button ResultClearButton;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uInRadiansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RadiansToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SmallUToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uncertaintyAsPercentToolStripMenuItem;
     }
 }
 

@@ -13,6 +13,8 @@ namespace TrigonometricUncertaintiesCalculator
 {
     public partial class Form1 : Form
     {
+        private UncertaintyCalculator _calculator = new UncertaintyCalculator();
+
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace TrigonometricUncertaintiesCalculator
         {
             if (XValueSetterTextBox.TextLength == 0 && UValueSetterTextBox.TextLength == 0)
             {
-                PrintFormulaSine();
+                _calculator.PrintFormulaSine(RadiansToolStripMenuItem.Checked, SmallUToolStripMenuItem.Checked);
             }
         }
 
@@ -37,18 +39,20 @@ namespace TrigonometricUncertaintiesCalculator
         {
             if (XValueSetterTextBox.TextLength == 0 && UValueSetterTextBox.TextLength == 0)
             {
-                PrintFormulaCosine();
+                _calculator.PrintFormulaCosine(RadiansToolStripMenuItem.Checked, SmallUToolStripMenuItem.Checked);
             }
         }
 
         private void ResultClearButton_Click(object sender, EventArgs e)
         {
             ResultTextBox.Text = "";
+            XValueSetterTextBox.Text = "";
+            UValueSetterTextBox.Text = "";
         }
 
-        private void uInRadiansToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RadiansToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            uInRadiansToolStripMenuItem.Checked = !uInRadiansToolStripMenuItem.Checked;
+            RadiansToolStripMenuItem.Checked = !RadiansToolStripMenuItem.Checked;
         }
 
         private void SmallUToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,49 +61,13 @@ namespace TrigonometricUncertaintiesCalculator
         }
 
         #endregion
-
-        #region Custom Methods
-
-        private void PrintSingleLineCenter(string toPrint)
+        
+        public void PrintToResultTextBox(Font font, string text)
         {
             ResultTextBox.SelectionAlignment = HorizontalAlignment.Center;
-            ResultTextBox.Font = new Font("Segoe UI", 30, FontStyle.Italic);
-            ResultTextBox.Text = $"\n{toPrint}";
+            ResultTextBox.Font = font;
+            ResultTextBox.Text = text;
         }
-
-        private void PrintFormulaSine()
-        {
-            if (!uInRadiansToolStripMenuItem.Checked)
-            {
-                PrintSingleLineCenter(SmallUToolStripMenuItem.Checked
-                    ? "y = sin(x) ± cos(x)sin(u)"
-                    : "y = sin(x)cos(u) ± cos(x)sin(u)");
-            }
-            else
-            {
-                PrintSingleLineCenter(SmallUToolStripMenuItem.Checked
-                    ? "y = sin(x) ± u•cos(x)"
-                    : "y = sin(x)cos(u) ± cos(x)sin(u)");
-            }
-        }
-
-        private void PrintFormulaCosine()
-        {
-            if (!uInRadiansToolStripMenuItem.Checked)
-            {
-                PrintSingleLineCenter(SmallUToolStripMenuItem.Checked
-                    ? "y = cos(x) ± sin(x)sin(u)"
-                    : "y = cos(x)cos(u) ± sin(x)sin(u)");
-            }
-            else
-            {
-                PrintSingleLineCenter(SmallUToolStripMenuItem.Checked
-                    ? "y = cos(x) ± u•sin(x)"
-                    : "y = cos(x)cos(u) ± sin(x)sin(u)");
-            }
-        }
-
-        #endregion
 
     }
 }
