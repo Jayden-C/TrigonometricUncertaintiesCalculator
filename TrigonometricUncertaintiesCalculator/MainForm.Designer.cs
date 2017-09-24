@@ -1,6 +1,6 @@
 ﻿namespace TrigonometricUncertaintiesCalculator
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SineModeLabel = new System.Windows.Forms.Label();
             this.CosineModeLabel = new System.Windows.Forms.Label();
             this.TipsLabel = new System.Windows.Forms.Label();
@@ -45,8 +46,9 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RadiansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SmallUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uncertaintyAsPercentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ResultClearButton = new System.Windows.Forms.Button();
+            this.ResultClearButtonToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,11 +149,11 @@
             // 
             // ResultTextBox
             // 
-            this.ResultTextBox.Location = new System.Drawing.Point(12, 281);
+            this.ResultTextBox.Location = new System.Drawing.Point(12, 264);
             this.ResultTextBox.Name = "ResultTextBox";
             this.ResultTextBox.ReadOnly = true;
             this.ResultTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.ResultTextBox.Size = new System.Drawing.Size(681, 318);
+            this.ResultTextBox.Size = new System.Drawing.Size(681, 335);
             this.ResultTextBox.TabIndex = 11;
             this.ResultTextBox.Text = "";
             // 
@@ -159,7 +161,7 @@
             // 
             this.ResultLabel.AutoSize = true;
             this.ResultLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResultLabel.Location = new System.Drawing.Point(308, 238);
+            this.ResultLabel.Location = new System.Drawing.Point(308, 221);
             this.ResultLabel.Name = "ResultLabel";
             this.ResultLabel.Size = new System.Drawing.Size(104, 40);
             this.ResultLabel.TabIndex = 12;
@@ -180,6 +182,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -196,42 +199,45 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RadiansToolStripMenuItem,
-            this.SmallUToolStripMenuItem,
-            this.uncertaintyAsPercentToolStripMenuItem});
+            this.SmallUToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // RadiansToolStripMenuItem
             // 
+            this.RadiansToolStripMenuItem.Checked = true;
+            this.RadiansToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.RadiansToolStripMenuItem.Name = "RadiansToolStripMenuItem";
-            this.RadiansToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.RadiansToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.RadiansToolStripMenuItem.Text = "Radians";
             this.RadiansToolStripMenuItem.Click += new System.EventHandler(this.RadiansToolStripMenuItem_Click);
             // 
             // SmallUToolStripMenuItem
             // 
             this.SmallUToolStripMenuItem.Name = "SmallUToolStripMenuItem";
-            this.SmallUToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.SmallUToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.SmallUToolStripMenuItem.Text = "Small \'u\'";
             this.SmallUToolStripMenuItem.Click += new System.EventHandler(this.SmallUToolStripMenuItem_Click);
-            // 
-            // uncertaintyAsPercentToolStripMenuItem
-            // 
-            this.uncertaintyAsPercentToolStripMenuItem.Name = "uncertaintyAsPercentToolStripMenuItem";
-            this.uncertaintyAsPercentToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.uncertaintyAsPercentToolStripMenuItem.Text = "Uncertainty as percent";
             // 
             // ResultClearButton
             // 
             this.ResultClearButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResultClearButton.Location = new System.Drawing.Point(617, 252);
+            this.ResultClearButton.Location = new System.Drawing.Point(617, 235);
             this.ResultClearButton.Name = "ResultClearButton";
             this.ResultClearButton.Size = new System.Drawing.Size(75, 23);
             this.ResultClearButton.TabIndex = 14;
             this.ResultClearButton.Text = "Clear";
+            this.ResultClearButtonToolTip.SetToolTip(this.ResultClearButton, "(Ctrl+D)");
             this.ResultClearButton.UseVisualStyleBackColor = true;
             this.ResultClearButton.Click += new System.EventHandler(this.ResultClearButton_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -252,9 +258,11 @@
             this.Controls.Add(this.SineModeLabel);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Trigonometric Uncertainties Calculator";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -282,7 +290,8 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RadiansToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SmallUToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uncertaintyAsPercentToolStripMenuItem;
+        private System.Windows.Forms.ToolTip ResultClearButtonToolTip;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

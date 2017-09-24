@@ -10,12 +10,7 @@ namespace TrigonometricUncertaintiesCalculator
     class UncertaintyCalculator
     {
         private readonly Font _printFont = new Font("Segoe UI", 30, FontStyle.Italic);
-
-        public UncertaintyCalculator()
-        {
-            
-        }
-
+        
         public enum Mode {Sine, Cosine}
 
         public string GenerateOutput(Mode mode, double x, double u)
@@ -36,6 +31,6 @@ namespace TrigonometricUncertaintiesCalculator
             else Print(_printFont, small ? "\ncos(x) ± sin(x)sin(u)" : "\ny = cos(x)cos(u) ± sin(x)sin(u)");
         }
 
-        private void Print(Font font, string text) => Program.MainWindowForm.PrintToResultTextBox(font, $"{text}\n");
+        private void Print(Font font, string text) => Program.MainWindowForm.PrintToResultTextBox(font, text);
     }
 }

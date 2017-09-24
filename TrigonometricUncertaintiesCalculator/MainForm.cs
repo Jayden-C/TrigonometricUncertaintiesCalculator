@@ -11,11 +11,12 @@ using System.Windows.Forms.VisualStyles;
 
 namespace TrigonometricUncertaintiesCalculator
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        private UncertaintyCalculator _calculator = new UncertaintyCalculator();
+        private readonly UncertaintyCalculator _calculator = new UncertaintyCalculator();
+        private readonly AboutForm _aboutForm = new AboutForm();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -60,8 +61,18 @@ namespace TrigonometricUncertaintiesCalculator
             SmallUToolStripMenuItem.Checked = !SmallUToolStripMenuItem.Checked;
         }
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.D) ResultClearButton_Click(null, null);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _aboutForm.ShowDialog();
+        }
+
         #endregion
-        
+
         public void PrintToResultTextBox(Font font, string text)
         {
             ResultTextBox.SelectionAlignment = HorizontalAlignment.Center;
