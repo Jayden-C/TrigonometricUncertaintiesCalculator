@@ -32,6 +32,16 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.GenerateOutputBigU(TrigonometricUncertaintiesCalculator.UncertaintyCalculator.Mode,System.Double,System.Double,System.Boolean)">
+            <summary>
+            Generate the output of the calculator based on the given paramaters
+            </summary>
+            <param name="mode">Sine or Cosine mode</param>
+            <param name="x">x value</param>
+            <param name="u">uncertainty</param>
+            <param name="radians">Radians mode</param>
+            <returns></returns>
+        </member>
         <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.PrintFormulaSine(System.Boolean,System.Boolean)">
             <summary>
             Prints the Sine uncertainty formulas in the case of the user leaving the 'x' and 'u' fields blank
@@ -54,6 +64,7 @@
             <param name="text">Text to print into the results box</param>
         </member>
         <member name="T:TrigonometricUncertaintiesCalculator.MainForm">
+            <inheritdoc />
             <summary>
             Main window of application
             </summary>

@@ -44,6 +44,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testButtonPloxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RadiansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SmallUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -183,7 +184,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AboutToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.testButtonPloxToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -191,16 +193,23 @@
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.AboutToolStripMenuItem.Text = "About";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // testButtonPloxToolStripMenuItem
+            // 
+            this.testButtonPloxToolStripMenuItem.Name = "testButtonPloxToolStripMenuItem";
+            this.testButtonPloxToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.testButtonPloxToolStripMenuItem.Text = "Test Button plox ";
+            this.testButtonPloxToolStripMenuItem.Click += new System.EventHandler(this.testButtonPloxToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -216,15 +225,15 @@
             this.RadiansToolStripMenuItem.Checked = true;
             this.RadiansToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.RadiansToolStripMenuItem.Name = "RadiansToolStripMenuItem";
-            this.RadiansToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.RadiansToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
             this.RadiansToolStripMenuItem.Text = "Radians";
             this.RadiansToolStripMenuItem.Click += new System.EventHandler(this.RadiansToolStripMenuItem_Click);
             // 
             // SmallUToolStripMenuItem
             // 
             this.SmallUToolStripMenuItem.Name = "SmallUToolStripMenuItem";
-            this.SmallUToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.SmallUToolStripMenuItem.Text = "Small \'u\'";
+            this.SmallUToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.SmallUToolStripMenuItem.Text = "Small \'u\' (affects formula display only)";
             this.SmallUToolStripMenuItem.Click += new System.EventHandler(this.SmallUToolStripMenuItem_Click);
             // 
             // ResultClearButton
@@ -292,6 +301,7 @@
         private System.Windows.Forms.ToolStripMenuItem SmallUToolStripMenuItem;
         private System.Windows.Forms.ToolTip ResultClearButtonToolTip;
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testButtonPloxToolStripMenuItem;
     }
 }
 

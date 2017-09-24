@@ -17,6 +17,9 @@ namespace TrigonometricUncertaintiesCalculator
     /// </summary>
     public partial class MainForm : Form
     {
+        private static double x;
+        private static double u;
+
         private readonly UncertaintyCalculator _calculator = new UncertaintyCalculator();
         private readonly AboutForm _aboutForm = new AboutForm();
 
@@ -27,7 +30,6 @@ namespace TrigonometricUncertaintiesCalculator
         public MainForm()
         {
             InitializeComponent();
-            ResultTextBox.SelectionAlignment = HorizontalAlignment.Center;
         }
 
         #region Auto-generated Methods
@@ -39,9 +41,18 @@ namespace TrigonometricUncertaintiesCalculator
 
         private void SineModeGoButton_Click(object sender, EventArgs e)
         {
+            x = Convert.ToDouble(XValueSetterTextBox.Text);
+            u = Convert.ToDouble(UValueSetterTextBox.Text);
+
             if (XValueSetterTextBox.TextLength == 0 && UValueSetterTextBox.TextLength == 0)
             {
+                ResultBoxAlignment(1);
                 _calculator.PrintFormulaSine(RadiansToolStripMenuItem.Checked, SmallUToolStripMenuItem.Checked);
+            }
+            else
+            {
+                ResultBoxAlignment(0);
+                _calculator.GenerateOutputBigU(UncertaintyCalculator.Mode.Sine, x, u, RadiansToolStripMenuItem.Checked);
             }
         }
 
@@ -49,6 +60,7 @@ namespace TrigonometricUncertaintiesCalculator
         {
             if (XValueSetterTextBox.TextLength == 0 && UValueSetterTextBox.TextLength == 0)
             {
+                ResultBoxAlignment(1);
                 _calculator.PrintFormulaCosine(RadiansToolStripMenuItem.Checked, SmallUToolStripMenuItem.Checked);
             }
         }
@@ -93,5 +105,28 @@ namespace TrigonometricUncertaintiesCalculator
             ResultTextBox.Text = text;
         }
 
+        private void ResultBoxAlignment(int alignment)
+        {
+            switch(alignment)
+            {
+                case 0:
+                    ResultTextBox.SelectionAlignment = HorizontalAlignment.Left;
+                    break;
+                case 1:
+                    ResultTextBox.SelectionAlignment = HorizontalAlignment.Center;
+                    break;
+                case 2:
+                    ResultTextBox.SelectionAlignment = HorizontalAlignment.Right;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void testButtonPloxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // ResultTextBox.SelectionAlignment = HorizontalAlignment.Left;
+            // _calculator.GenerateOutputBigU(UncertaintyCalculator.Mode.Sine, 55, 5, false);
+        }
     }
 }

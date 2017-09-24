@@ -13,7 +13,55 @@ namespace TrigonometricUncertaintiesCalculator
         
         public enum Mode {Sine, Cosine}
 
-        public string GenerateOutput(Mode mode, double x, double u)
+        /// <summary>
+        /// Generate the output of the calculator based on the given paramaters
+        /// </summary>
+        /// <param name="mode">Sine or Cosine mode</param>
+        /// <param name="x">x value</param>
+        /// <param name="u">uncertainty</param>
+        /// <param name="radians">Radians mode</param>
+        /// <returns></returns>
+        public void GenerateOutputBigU(Mode mode, double x, double u, bool radians)
+        {
+            switch(mode)
+            {
+                case Mode.Sine:
+                    Print(_printFont, GenerateOutputSine(x, u, false, radians));
+                    break;
+                case Mode.Cosine:
+                    //return GenerateOutputCosine();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GenerateOutputSine(double x, double u, bool smallU, bool radians)
+        {
+            var xInRadians = radians ? x : (x * Math.PI / 180);
+            var uInRadians = radians ? u : (u * Math.PI / 180);
+
+            var sinX = Math.Round(Math.Sin(xInRadians), 3);
+            var cosX = Math.Round(Math.Cos(xInRadians), 3);
+
+            var sinU = Math.Round(Math.Sin(uInRadians), 3);
+            var cosU = Math.Round(Math.Cos(uInRadians), 3);
+
+            switch (smallU)
+            {
+                case false:
+                    return $"y = sin({x})cos({u}) ± cos({x})sin({u})\n" +
+                           $"y = ({sinX})({cosU}) ± ({cosX})({sinU})\n\n" +
+                           $"y = {Math.Round(sinX * cosU, 3)} ± {Math.Round(cosX * sinU, 3)} or\n" +
+                           $"y = {Math.Round(sinX * cosU, 3)} ± {PercentOf(sinX * cosU, cosX * sinU)}%";
+                case true:
+
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public string GenerateOutputCosine()
         {
             throw new NotImplementedException();
         }
@@ -47,5 +95,11 @@ namespace TrigonometricUncertaintiesCalculator
         /// <param name="font">Font to be used</param>
         /// <param name="text">Text to print into the results box</param>
         private void Print(Font font, string text) => Program.MainWindowForm.PrintToResultTextBox(font, text);
+
+        private double PercentOf(double primary, double secondary)
+        {
+            var percent = (secondary / primary) * 100;
+            return Math.Round(percent, 1);
+        }
     }
 }
