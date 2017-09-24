@@ -1,5 +1,8 @@
 ﻿namespace TrigonometricUncertaintiesCalculator
 {
+    /// <summary>
+    /// Form shown to the user when they click File > About
+    /// </summary>
     partial class AboutForm
     {
         /// <summary>

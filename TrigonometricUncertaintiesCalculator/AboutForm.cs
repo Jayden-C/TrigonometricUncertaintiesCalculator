@@ -12,6 +12,10 @@ namespace TrigonometricUncertaintiesCalculator
 {
     public partial class AboutForm : Form
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Constructor for AboutForm
+        /// </summary>
         public AboutForm()
         {
             InitializeComponent();

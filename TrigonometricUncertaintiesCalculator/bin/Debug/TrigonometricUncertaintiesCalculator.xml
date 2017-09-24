@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TrigonometricUncertaintiesCalculator</name>
+    </assembly>
+    <members>
+        <member name="T:TrigonometricUncertaintiesCalculator.AboutForm">
+            <summary>
+            Form shown to the user when they click File > About
+            </summary>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.AboutForm.#ctor">
+            <inheritdoc />
+            <summary>
+            Constructor for AboutForm
+            </summary>
+        </member>
+        <member name="F:TrigonometricUncertaintiesCalculator.AboutForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.AboutForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.AboutForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.PrintFormulaSine(System.Boolean,System.Boolean)">
+            <summary>
+            Prints the Sine uncertainty formulas in the case of the user leaving the 'x' and 'u' fields blank
+            </summary>
+            <param name="radians">Whether to print radians or degrees formula</param>
+            <param name="small">Whether to print small uncertainty formula or not</param>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.PrintFormulaCosine(System.Boolean,System.Boolean)">
+            <summary>
+            Prints the Cosine uncertainty formulas in the case of the user leaving the 'x' and 'u' fields blank
+            </summary>
+            <param name="radians">Whether to print radians or degrees formula</param>
+            <param name="small">Whether to print small uncertainty formula or not</param>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.Print(System.Drawing.Font,System.String)">
+            <summary>
+            Prints to the results box of the main form
+            </summary>
+            <param name="font">Font to be used</param>
+            <param name="text">Text to print into the results box</param>
+        </member>
+        <member name="T:TrigonometricUncertaintiesCalculator.MainForm">
+            <summary>
+            Main window of application
+            </summary>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.MainForm.#ctor">
+            <inheritdoc />
+            <summary>
+            Constructor for MainForm
+            </summary>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.MainForm.PrintToResultTextBox(System.Drawing.Font,System.String)">
+            <summary>
+            Sets the font and text of the result text box. To be used primarily by external classes.
+            </summary>
+            <param name="font">Font to be used</param>
+            <param name="text">Text to be printed in the result box</param>
+        </member>
+        <member name="F:TrigonometricUncertaintiesCalculator.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:TrigonometricUncertaintiesCalculator.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TrigonometricUncertaintiesCalculator.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TrigonometricUncertaintiesCalculator.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

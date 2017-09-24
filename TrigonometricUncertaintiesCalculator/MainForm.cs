@@ -11,11 +11,19 @@ using System.Windows.Forms.VisualStyles;
 
 namespace TrigonometricUncertaintiesCalculator
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// Main window of application
+    /// </summary>
     public partial class MainForm : Form
     {
         private readonly UncertaintyCalculator _calculator = new UncertaintyCalculator();
         private readonly AboutForm _aboutForm = new AboutForm();
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Constructor for MainForm
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
