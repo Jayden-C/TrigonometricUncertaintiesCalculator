@@ -32,14 +32,25 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.GenerateOutputBigU(TrigonometricUncertaintiesCalculator.UncertaintyCalculator.Mode,System.Double,System.Double,System.Boolean)">
+        <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.GenerateOutput(TrigonometricUncertaintiesCalculator.UncertaintyCalculator.Mode,System.Double,System.Double,System.Boolean,System.Boolean)">
             <summary>
             Generate the output of the calculator based on the given paramaters
             </summary>
             <param name="mode">Sine or Cosine mode</param>
             <param name="x">x value</param>
             <param name="u">uncertainty</param>
+            <param name="smallU">Whether or not the uncertainty is small enough to omit cos(u)</param>
             <param name="radians">Radians mode</param>
+            <returns></returns>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.GenerateOutputSine(System.Double,System.Double,System.Boolean,System.Boolean)">
+            <summary>
+            Returns detailed calculations for trig uncertainties using Sine function
+            </summary>
+            <param name="x">x variable / data</param>
+            <param name="u">Uncertainty</param>
+            <param name="smallU">Whether or not the uncertainty is small enough to omit cos(u)</param>
+            <param name="radians">Radians or degrees mode</param>
             <returns></returns>
         </member>
         <member name="M:TrigonometricUncertaintiesCalculator.UncertaintyCalculator.PrintFormulaSine(System.Boolean,System.Boolean)">
@@ -81,6 +92,11 @@
             </summary>
             <param name="font">Font to be used</param>
             <param name="text">Text to be printed in the result box</param>
+        </member>
+        <member name="M:TrigonometricUncertaintiesCalculator.MainForm.SetXandUValues">
+            <summary>
+            Gets the values from the x and u text boxes and stores them in variables.
+            </summary>
         </member>
         <member name="F:TrigonometricUncertaintiesCalculator.MainForm.components">
             <summary>

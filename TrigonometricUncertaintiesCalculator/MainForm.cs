@@ -19,6 +19,7 @@ namespace TrigonometricUncertaintiesCalculator
     {
         private static double x;
         private static double u;
+        private static bool _noX;
 
         private readonly UncertaintyCalculator _calculator = new UncertaintyCalculator();
         private readonly AboutForm _aboutForm = new AboutForm();
@@ -41,18 +42,16 @@ namespace TrigonometricUncertaintiesCalculator
 
         private void SineModeGoButton_Click(object sender, EventArgs e)
         {
-            x = Convert.ToDouble(XValueSetterTextBox.Text);
-            u = Convert.ToDouble(UValueSetterTextBox.Text);
-
             if (XValueSetterTextBox.TextLength == 0 && UValueSetterTextBox.TextLength == 0)
             {
-                ResultBoxAlignment(1);
+                ResultTextBoxAlign(HorizontalAlignment.Center);
                 _calculator.PrintFormulaSine(RadiansToolStripMenuItem.Checked, SmallUToolStripMenuItem.Checked);
             }
             else
             {
-                ResultBoxAlignment(0);
-                _calculator.GenerateOutputBigU(UncertaintyCalculator.Mode.Sine, x, u, RadiansToolStripMenuItem.Checked);
+                SetXandUValues();
+                ResultTextBoxAlign(HorizontalAlignment.Left);
+                _calculator.GenerateOutput(UncertaintyCalculator.Mode.Sine, x, u,SmallUToolStripMenuItem.Checked, RadiansToolStripMenuItem.Checked);
             }
         }
 
@@ -60,8 +59,14 @@ namespace TrigonometricUncertaintiesCalculator
         {
             if (XValueSetterTextBox.TextLength == 0 && UValueSetterTextBox.TextLength == 0)
             {
-                ResultBoxAlignment(1);
+                ResultTextBoxAlign(HorizontalAlignment.Center);
                 _calculator.PrintFormulaCosine(RadiansToolStripMenuItem.Checked, SmallUToolStripMenuItem.Checked);
+            }
+            else
+            {
+                SetXandUValues();
+                ResultTextBoxAlign(HorizontalAlignment.Left);
+                _calculator.GenerateOutput(UncertaintyCalculator.Mode.Cosine, x, u, SmallUToolStripMenuItem.Checked, RadiansToolStripMenuItem.Checked);
             }
         }
 
@@ -70,6 +75,7 @@ namespace TrigonometricUncertaintiesCalculator
             ResultTextBox.Text = "";
             XValueSetterTextBox.Text = "";
             UValueSetterTextBox.Text = "";
+            _noX = true;
         }
 
         private void RadiansToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,7 +90,19 @@ namespace TrigonometricUncertaintiesCalculator
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.D) ResultClearButton_Click(null, null);
+            switch(e.KeyCode)
+            {
+                case Keys.D:
+                    if (e.Control) ResultClearButton_Click(null, null);
+                    break;
+                case Keys.F:
+                    if (e.Control) ResultTextBox.SelectAll();
+                    break;
+                default:
+                    break;
+            }
+
+            //if (e.Control && e.KeyCode == Keys.D) ResultClearButton_Click(null, null);
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,28 +123,47 @@ namespace TrigonometricUncertaintiesCalculator
             ResultTextBox.Text = text;
         }
 
-        private void ResultBoxAlignment(int alignment)
-        {
-            switch(alignment)
-            {
-                case 0:
-                    ResultTextBox.SelectionAlignment = HorizontalAlignment.Left;
-                    break;
-                case 1:
-                    ResultTextBox.SelectionAlignment = HorizontalAlignment.Center;
-                    break;
-                case 2:
-                    ResultTextBox.SelectionAlignment = HorizontalAlignment.Right;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
         private void testButtonPloxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // ResultTextBox.SelectionAlignment = HorizontalAlignment.Left;
             // _calculator.GenerateOutputBigU(UncertaintyCalculator.Mode.Sine, 55, 5, false);
+        }
+
+        /// <summary>
+        /// Gets the values from the x and u text boxes and stores them in variables.
+        /// </summary>
+        private void SetXandUValues()
+        {
+            ResultTextBox.Text = "";
+            if (XValueSetterTextBox.TextLength == 0) _noX = true;
+            else
+            {
+                _noX = false;
+                x = Convert.ToDouble(XValueSetterTextBox.Text);
+            }
+
+            if(UValueSetterTextBox.TextLength == 0 && XValueSetterTextBox.TextLength != 0)
+            {
+                MessageBox.Show("Please input a value for the uncertainty.");
+            }
+            else
+            {
+                u = Convert.ToDouble(UValueSetterTextBox.Text);
+            }
+        }
+
+        private void ResultTextBoxAlign(HorizontalAlignment align)
+        {
+            ResultTextBox.SelectAll();
+            ResultTextBox.SelectionAlignment = align;
+            ResultTextBox.DeselectAll();
+        }
+
+        private void ClearXandUValues()
+        {
+            x = 0;
+            u = 0;
+            _noX = true;
         }
     }
 }
